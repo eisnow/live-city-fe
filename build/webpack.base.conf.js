@@ -4,11 +4,6 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-const extractSass = new ExtractTextPlugin({
-  filename: '[name].css',
-  allChunks: true
-});
-
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
