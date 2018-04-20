@@ -2,7 +2,16 @@
   <div class="slc-map">
     <vl-map :load-tiles-while-animating="true" :load-tiles-while-interacting="true">
         <vl-view :zoom.sync="zoom" :center.sync="center" :rotation.sync="rotation"></vl-view>
-
+        <vl-geoloc @update:position="center = $event">
+          <template slot-scope="geoloc">
+            <vl-feature v-if="geoloc.position" id="position-feature">
+              <vl-geom-point :coordinates="geoloc.position"></vl-geom-point>
+              <vl-style-box>
+                <vl-style-icon src="_media/marker.png" :scale="0.4" :anchor="[0.5, 1]"></vl-style-icon>
+              </vl-style-box>
+            </vl-feature>
+          </template>
+        </vl-geoloc>
         <vl-layer-tile id="osm">
             <vl-source-osm></vl-source-osm>
         </vl-layer-tile>
@@ -16,7 +25,7 @@
       return {
         zoom: 13,
         center: [116.3931, 39.8993],
-        rotation: 0,
+        rotation: 0
       }
     },
     created () {
