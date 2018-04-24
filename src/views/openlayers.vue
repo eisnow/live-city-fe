@@ -37,7 +37,7 @@
     methods: {
       fetchData () {
         // replace getPost with your data fetching util / API wrapper
-        // getPost(this.$route.params.city, (err, post) => {
+        // this.$http.get('/api/location/' + this.$route.params.city, (err, post) => {
           if (this.$route.params.city === 'beijing') {
             this.center = [116.3931, 39.9053]
           } else if (this.$route.params.city === 'nanjing') {

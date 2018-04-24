@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import iView from 'iview';
 import VueRouter from 'vue-router';
-// import VueResource from 'vue-resource';
+import VueResource from 'vue-resource';
 import VueLayers from 'vuelayers';
 
 import Routers from './router';
@@ -11,7 +11,7 @@ import App from './app.vue';
 import 'iview/dist/styles/iview.css';
 import 'vuelayers/lib/style.css';
 
-// Vue.use(VueResource);
+Vue.use(VueResource);
 Vue.use(VueRouter);
 Vue.use(iView);
 Vue.use(VueLayers, {
